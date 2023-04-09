@@ -1,3 +1,9 @@
+## References
+- https://dev.to/mekarosi/create-a-rails-app-with-react-for-frontend-using-esbuild-and-jsbundle-15a
+- https://reactrouter.com/en/main/upgrading/v5
+- https://github.com/learn-academy-2023-bravo/Syllabus/blob/main/apartment-app/react-in-rails.md
+- https://esbuild.github.io/
+
 ## Create rails app with esbuild
 - $ rails new capstone-test -j esbuild -d postgresql -T
 - $ cd capstone-test
@@ -69,6 +75,7 @@ export default class extends Controller {
 - $ bin/dev
 
 ## Create additional components
+- $ yarn add react-router-dom
 ```js
   // Create app/javascript/controllers/CapstoneIndex.js file
   import React from "react"
@@ -124,3 +131,4 @@ export default class extends Controller {
   # Make add routes to config/routes.rb
   get '*path', to: 'pages#home', via: :all
 ```
+
