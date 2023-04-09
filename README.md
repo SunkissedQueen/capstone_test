@@ -132,3 +132,45 @@ export default class extends Controller {
   get '*path', to: 'pages#home', via: :all
 ```
 
+## Add reactstrap and bootstrap
+- $ bundle add bootstrap
+- $ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+- $ yarn add reactstrap
+Add the following import to app/assets/stylesheets/application.scss
+`@import "bootstrap"`
+- $ bundle
+- $ yarn
+Stop and restart server
+
+## Navigation
+```js
+  import React from "react"
+  import { Nav, NavItem } from "reactstrap"
+  import { NavLink } from "react-router-dom"
+
+  const Navigation = () => {
+    return (
+      <Nav>
+        <NavItem>
+          <NavLink to="/">
+            Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/index">
+            See all the categories
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/show">
+            See the advice
+          </NavLink>
+        </NavItem>
+      </Nav>
+    )
+  }
+
+  export default Navigation
+```
+Import Navigation to App.js
+Add component call to React routes
