@@ -174,3 +174,63 @@ Stop and restart server
 ```
 Import Navigation to App.js
 Add component call to React routes
+
+## Adding devise
+- $ bundle add devise
+- $ rails generate devise:install
+- $ rails generate devise User
+- $ rails db:migrate
+
+```bash
+  # from the terminal
+  Depending on your application's configuration some manual setup may be required:
+
+    1. Ensure you have defined default url options in your environments files. Here
+      is an example of default_url_options appropriate for a development environment
+      in config/environments/development.rb:
+
+        config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+      In production, :host should be set to the actual host of your application.
+
+      * Required for all applications. *
+
+    2. Ensure you have defined root_url to *something* in your config/routes.rb.
+      For example:
+
+        root to: "home#index"
+      
+      * Not required for API-only Applications *
+
+    3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+      For example:
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+      * Not required for API-only Applications *
+
+    4. You can copy Devise views (for customization) to your app by running:
+
+        rails g devise:views
+```
+Add devise routes to the app/views/pages/home.html.erb
+```rb
+  <%= content_tag(
+    :div, 
+    "", 
+    id:"app", 
+    data: {controller: "react"},
+    devise: {
+      logged_in: user_signed_in?,
+      current_user: current_user,
+      new_user_route: new_user_registration_path,
+      sign_in_route: new_user_session_path,
+      sign_out_route: destroy_user_session_path
+    }
+  )%>
+```
+
+## Blocker
+- console.log are undefined
+- not sure how to add devise routes to the views

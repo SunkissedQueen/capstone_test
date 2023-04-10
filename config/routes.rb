@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get 'pages/Home'
   root 'pages#home'
   get '*path', to: 'pages#home', via: :all
